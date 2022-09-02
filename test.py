@@ -44,8 +44,6 @@ def get_cell_loc(vid, model, diameter):
 
     return loc_all_time
 
-
-
 use_GPU = True
 model = models.Cellpose(gpu=use_GPU, model_type='cyto')
 
