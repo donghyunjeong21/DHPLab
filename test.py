@@ -44,6 +44,8 @@ def get_cell_loc(vid, model, diameter):
 
     return loc_all_time
 
+
+
 use_GPU = True
 model = models.Cellpose(gpu=use_GPU, model_type='cyto')
 
@@ -51,3 +53,19 @@ for filenames in images_lst:
     data_path = os.path.join(img_dir,filenames)
     im = io.imread(data_path)
     data = get_cell_loc(im, model, 10)
+
+    n = 0
+    for i in range(len(data)):
+      n = n + data[i].shape[1]
+
+    data_arr = np.zeros([4, n])
+
+    count = 0
+    for i in range(len(data)):
+      m = data[i].shape[1]
+      data_arr[0:3, count:count+m] = data[i]
+      data_arr[3, count:count+m] = i
+      count = count + m
+
+    filename_csv = filename[:-4] + '.csv'
+    np.savetxt(filename_csv, data_arr, delimiter = ', ')
