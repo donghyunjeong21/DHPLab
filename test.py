@@ -67,5 +67,5 @@ for filenames in images_lst:
       data_arr[3, count:count+m] = i
       count = count + m
 
-    filename_csv = filename[:-4] + '.csv'
+    filename_csv = filenames[:-4] + '.csv'
     np.savetxt(filename_csv, data_arr, delimiter = ', ')
