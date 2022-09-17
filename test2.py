@@ -104,5 +104,6 @@ csv_lst = [file for file in os.listdir(csv_dir) if file.endswith('.csv')]
 
 
 num_cores = mp.cpu_count()
+print(num_cores)
 
 results = Parallel(n_jobs=num_cores)(delayed(processInput)(filename) for filename in csv_lst)
