@@ -96,7 +96,7 @@ def run_entire_pipeline(csv_dir, filename, parameters, verbose = False):
 parameters = np.array([3, 0.5, 10])
 def processInput(filename):
     output = run_entire_pipeline(csv_dir, filename, parameters)
-    filename_csv = filename[:-4] + '2.csv'
+    filename_csv = filename[:-4] + '_fractals.csv'
     np.savetxt(filename_csv, output, delimiter = ', ')
 
 csv_dir = pathlib.Path(__file__).parent.resolve()
