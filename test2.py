@@ -93,7 +93,10 @@ def run_entire_pipeline(csv_dir, filename, parameters, verbose = False):
     output = np.array([t,x])
     return output
 
-parameters = np.array([3, 2, 10])
+Num_of_neighbors = int(input('Select number of neighbor parameter, must be an odd int>>>  '))
+Grid_pixel_size = float(input('Select pixel size, default is 2>>>  '))
+Min_time = int(input('Select minimum time cutoff, recommended is 10>>>  '))
+parameters = np.array([Num_of_neighbors, Grid_pixel_size, Min_time])
 def processInput(filename):
     output = run_entire_pipeline(csv_dir, filename, parameters)
     filename_csv = filename[:-4] + '_fractals.csv'
