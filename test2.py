@@ -45,7 +45,7 @@ def get_boundary(zz):
 
   return boundary
 
-def get_regions(data, n_neighbor = 3, grid_step = 0.5, plot_result=False):
+def get_regions(data, n_neighbor = 3, grid_step = 2, plot_result=False):
   xgrid = np.arange(data[0,:].min(), data[0,:].max(), grid_step)
   ygrid = np.arange(data[1,:].min(), data[1,:].max(), grid_step)
   xx, yy = np.meshgrid(xgrid, ygrid)
@@ -93,7 +93,7 @@ def run_entire_pipeline(csv_dir, filename, parameters, verbose = False):
     output = np.array([t,x])
     return output
 
-parameters = np.array([3, 0.5, 10])
+parameters = np.array([3, 2, 10])
 def processInput(filename):
     output = run_entire_pipeline(csv_dir, filename, parameters)
     filename_csv = filename[:-4] + '_fractals.csv'
